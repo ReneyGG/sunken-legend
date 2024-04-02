@@ -16,6 +16,8 @@ func _on_texture_button_pressed():
 	click_sfx.play()
 	if check():
 		solved = true
+		for i  in grid:
+			i.pop()
 		get_node("Fin").play()
 		await get_node("Fin").finished
 		Transition.change_scene(poem)

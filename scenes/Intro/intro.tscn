@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsmxrgauvom1l"]
+
+[ext_resource type="Texture2D" uid="uid://dwqgkm4wx37gi" path="res://assets/dithers/dither_it_book(2).png" id="1_20hhn"]
+[ext_resource type="FontFile" uid="uid://c5nto8d4eq0xb" path="res://assets/font/Silver.ttf" id="2_2bjw8"]
+
+[node name="Intro" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.423529, 0.607843, 0.811765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -13.0
+offset_right = 85.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_20hhn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 2.0
+offset_right = 360.0
+offset_bottom = 44.0
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.921569, 0.847059, 0.698039, 1)
+theme_override_fonts/font = ExtResource("2_2bjw8")
+theme_override_font_sizes/font_size = 38
+text = "An old, sealed book has been found."
+horizontal_alignment = 1
+vertical_alignment = 1

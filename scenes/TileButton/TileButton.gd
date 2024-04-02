@@ -31,3 +31,6 @@ func change():
 	else:
 		tile += 1
 	sprite.frame = tile
+
+func pop():
+	get_node("AnimationPlayer").play("pressed")
