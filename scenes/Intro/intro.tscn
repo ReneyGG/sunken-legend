@@ -1,7 +1,94 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsmxrgauvom1l"]
+[gd_scene load_steps=11 format=3 uid="uid://bsmxrgauvom1l"]
 
+[ext_resource type="Script" path="res://scenes/Intro/intro.gd" id="1_7d5pb"]
 [ext_resource type="Texture2D" uid="uid://dwqgkm4wx37gi" path="res://assets/dithers/dither_it_book(2).png" id="1_20hhn"]
 [ext_resource type="FontFile" uid="uid://c5nto8d4eq0xb" path="res://assets/font/Silver.ttf" id="2_2bjw8"]
+[ext_resource type="AudioStream" uid="uid://dg8j832p2n2rs" path="res://sfx/footstep_concrete_002.ogg" id="4_fdsv7"]
+[ext_resource type="AudioStream" uid="uid://1oigj8c481oj" path="res://sfx/impactPlate_medium_001.ogg" id="5_t5pw1"]
+
+[sub_resource type="Animation" id="Animation_73qpk"]
+resource_name = "pressed"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(0.31, 0.31), Vector2(0.3, 0.3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_idmfq"]
+_data = {
+"pressed": SubResource("Animation_73qpk")
+}
+
+[sub_resource type="Animation" id="Animation_7t86a"]
+resource_name = "intro"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 5.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_14byk"]
+resource_name = "intro_2"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 5.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0crj6"]
+_data = {
+"intro": SubResource("Animation_7t86a"),
+"intro_2": SubResource("Animation_14byk")
+}
 
 [node name="Intro" type="Control"]
 texture_filter = 1
@@ -11,6 +98,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7d5pb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -21,19 +109,28 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.423529, 0.607843, 0.811765, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="BookButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -15.0
-offset_top = -13.0
-offset_right = 85.0
-offset_bottom = 76.0
+offset_left = -11.0
+offset_top = -9.0
+offset_right = 10.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BookButton"]
+libraries = {
+"": SubResource("AnimationLibrary_idmfq")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="BookButton"]
+position = Vector2(11, 9)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_20hhn")
 
@@ -42,15 +139,47 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -40.0
-offset_top = 2.0
-offset_right = 360.0
-offset_bottom = 44.0
+offset_left = -39.0
+offset_top = 3.0
+offset_right = 357.0
+offset_bottom = 48.0
 grow_horizontal = 2
 scale = Vector2(0.2, 0.2)
 theme_override_colors/font_color = Color(0.921569, 0.847059, 0.698039, 1)
 theme_override_fonts/font = ExtResource("2_2bjw8")
 theme_override_font_sizes/font_size = 38
 text = "An old, sealed book has been found."
-horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -10.0
+offset_right = 245.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.921569, 0.847059, 0.698039, 1)
+theme_override_fonts/font = ExtResource("2_2bjw8")
+theme_override_font_sizes/font_size = 38
+text = "A testament to Atlantis."
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0crj6")
+}
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fdsv7")
+
+[node name="Open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_t5pw1")
+
+[connection signal="pressed" from="BookButton" to="." method="_on_book_button_pressed"]

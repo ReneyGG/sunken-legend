@@ -12,7 +12,7 @@ config_version=5
 
 config/name="SunkenLegend"
 run/main_scene="res://scenes/main_0.tscn"
-config/features=PackedStringArray("4.2", "GL Compatibility")
+config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -23,7 +23,7 @@ Transition="*res://scenes/transition.tscn"
 
 window/size/viewport_width=80
 window/size/viewport_height=60
-window/size/mode=3
+window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [rendering]
