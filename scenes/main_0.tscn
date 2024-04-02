@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi8s7c0v75fx6"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_n0u45"]
+[ext_resource type="PackedScene" uid="uid://cgabl1x0mignp" path="res://scenes/Poem/haiku_0.tscn" id="2_r7x87"]
+[ext_resource type="PackedScene" uid="uid://cbymlt427jjnn" path="res://scenes/TileButton/TileButton.tscn" id="3_crhc0"]
+[ext_resource type="AudioStream" uid="uid://dflvy2bkwfxa" path="res://sfx/footstep_wood_001.ogg" id="4_xknnm"]
+[ext_resource type="AudioStream" uid="uid://cqrjhwtrs6n7a" path="res://sfx/impactBell_heavy_000.ogg" id="5_upwyt"]
+
+[node name="Main0" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n0u45")
+max_tile = 2
+poem = ExtResource("2_r7x87")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.513726, 0.635294, 1, 1)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -3.0
+offset_right = 13.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="TextureButton" parent="GridContainer" instance=ExtResource("3_crhc0")]
+layout_mode = 2
+
+[node name="TextureButton2" parent="GridContainer" instance=ExtResource("3_crhc0")]
+layout_mode = 2
+tile = 1
+
+[node name="TextureButton3" parent="GridContainer" instance=ExtResource("3_crhc0")]
+layout_mode = 2
+tile = 2
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xknnm")
+
+[node name="Fin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_upwyt")
+
+[connection signal="pressed" from="GridContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton2" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton3" to="." method="_on_texture_button_pressed"]

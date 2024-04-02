@@ -1,0 +1,149 @@
+[gd_scene load_steps=25 format=3 uid="uid://cbymlt427jjnn"]
+
+[ext_resource type="Script" path="res://scenes/TileButton/TileButton.gd" id="1_0v1xj"]
+[ext_resource type="Texture2D" uid="uid://v0g4gdht38s6" path="res://assets/puzzle1/tile0.png" id="2_4hbob"]
+[ext_resource type="Texture2D" uid="uid://djdgemt5a0m8f" path="res://assets/puzzle0/tile4.png" id="2_lq7x5"]
+[ext_resource type="Texture2D" uid="uid://cw4ux76nn1rxu" path="res://assets/puzzle1/tile1.png" id="3_hhbqc"]
+[ext_resource type="Texture2D" uid="uid://6mjlkyvuj842" path="res://assets/puzzle0/tile1.png" id="3_s7m42"]
+[ext_resource type="Texture2D" uid="uid://dsyb5lp0vpe6n" path="res://assets/puzzle0/tile2.png" id="4_6hove"]
+[ext_resource type="Texture2D" uid="uid://bvsteo6np1jnt" path="res://assets/puzzle1/tile2.png" id="4_e0k7j"]
+[ext_resource type="Texture2D" uid="uid://ct7etfajyqkab" path="res://assets/puzzle1/tile3.png" id="5_1xqrn"]
+[ext_resource type="Texture2D" uid="uid://ckctul6f6da7" path="res://assets/puzzle0/tile3.png" id="5_4msmt"]
+[ext_resource type="Texture2D" uid="uid://dkc0iqv21miyp" path="res://assets/puzzle0/tile0.png" id="6_atnnq"]
+[ext_resource type="Texture2D" uid="uid://cwtnorkh6kfno" path="res://assets/puzzle1/tile4.png" id="6_b1hqp"]
+[ext_resource type="Texture2D" uid="uid://c6lfeljcx5lsx" path="res://assets/puzzle2/tile4.png" id="7_oxrid"]
+[ext_resource type="Texture2D" uid="uid://bc2ynqnge1j23" path="res://assets/puzzle2/tile1.png" id="8_udosl"]
+[ext_resource type="Texture2D" uid="uid://dejtaq57q7td0" path="res://assets/puzzle2/tile2.png" id="9_jpwgi"]
+[ext_resource type="Texture2D" uid="uid://vg1jl73n56w2" path="res://assets/puzzle2/tile3.png" id="10_8fysy"]
+[ext_resource type="Texture2D" uid="uid://dttnybjuvfri0" path="res://assets/puzzle2/tile0.png" id="11_auahu"]
+[ext_resource type="Texture2D" uid="uid://bpcn6n1xj26mp" path="res://assets/puzzle3/tile4.png" id="12_jx7p7"]
+[ext_resource type="Texture2D" uid="uid://b5wxtrtj0ufx3" path="res://assets/puzzle3/tile1.png" id="13_3tdn0"]
+[ext_resource type="Texture2D" uid="uid://d380f0dcbfhug" path="res://assets/puzzle3/tile2.png" id="14_i7wct"]
+[ext_resource type="Texture2D" uid="uid://d3fyilgml36e8" path="res://assets/puzzle3/tile3.png" id="15_5l3by"]
+[ext_resource type="Texture2D" uid="uid://by0414etpvhbw" path="res://assets/puzzle3/tile0.png" id="16_866d1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gdhiq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_s7m42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6hove")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4msmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_atnnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lq7x5")
+}],
+"loop": true,
+"name": &"puzzle0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hhbqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e0k7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1xqrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4hbob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b1hqp")
+}],
+"loop": true,
+"name": &"puzzle1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_udosl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jpwgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8fysy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_auahu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oxrid")
+}],
+"loop": true,
+"name": &"puzzle2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_3tdn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_i7wct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5l3by")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_866d1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jx7p7")
+}],
+"loop": true,
+"name": &"puzzle3",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ijmmr"]
+resource_name = "pressed"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.04, 1.04), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yuwwd"]
+_data = {
+"pressed": SubResource("Animation_ijmmr")
+}
+
+[node name="TextureButton" type="TextureButton"]
+custom_minimum_size = Vector2(6, 6)
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+script = ExtResource("1_0v1xj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_gdhiq")
+animation = &"puzzle3"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yuwwd")
+}
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

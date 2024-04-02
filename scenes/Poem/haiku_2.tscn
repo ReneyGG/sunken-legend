@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba0s0x74khmg1"]
+
+[ext_resource type="Script" path="res://scenes/Poem/haiku_1.gd" id="1_2ictf"]
+[ext_resource type="FontFile" uid="uid://c5nto8d4eq0xb" path="res://assets/font/Silver.ttf" id="2_3q6sn"]
+[ext_resource type="PackedScene" uid="uid://bqlupebd0x37y" path="res://scenes/main_3.tscn" id="2_tky08"]
+
+[node name="Haiku2" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ictf")
+next = ExtResource("2_tky08")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.176471, 0.584314, 0.588235, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.945098, 0.980392, 0.854902, 1)
+theme_override_fonts/font = ExtResource("2_3q6sn")
+theme_override_font_sizes/font_size = 38
+text = "Marble gods stand tall,
+But cannot halt nature's call,
+Atlantis's fall."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

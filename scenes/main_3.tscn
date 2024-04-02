@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqlupebd0x37y"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_t04tg"]
+[ext_resource type="PackedScene" uid="uid://befxccblir3qs" path="res://scenes/Poem/haiku_3.tscn" id="2_43eko"]
+[ext_resource type="PackedScene" uid="uid://cbymlt427jjnn" path="res://scenes/TileButton/TileButton.tscn" id="2_gnlkh"]
+[ext_resource type="AudioStream" uid="uid://dflvy2bkwfxa" path="res://sfx/footstep_wood_001.ogg" id="4_78jky"]
+[ext_resource type="AudioStream" uid="uid://cqrjhwtrs6n7a" path="res://sfx/impactBell_heavy_000.ogg" id="5_ni5d5"]
+
+[node name="Main3" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t04tg")
+max_tile = 4
+poem = ExtResource("2_43eko")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.423529, 0.133333, 0.65098, 1)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="TextureButton" parent="GridContainer" node_paths=PackedStringArray("connections") instance=ExtResource("2_gnlkh")]
+layout_mode = 2
+tile = 1
+connections = [NodePath("../TextureButton6"), NodePath("../TextureButton2")]
+
+[node name="TextureButton2" parent="GridContainer" node_paths=PackedStringArray("connections") instance=ExtResource("2_gnlkh")]
+layout_mode = 2
+connections = [NodePath("../TextureButton5")]
+
+[node name="TextureButton3" parent="GridContainer" node_paths=PackedStringArray("connections") instance=ExtResource("2_gnlkh")]
+layout_mode = 2
+tile = 3
+connections = [NodePath("../TextureButton"), NodePath("../TextureButton4")]
+
+[node name="TextureButton4" parent="GridContainer" node_paths=PackedStringArray("connections") instance=ExtResource("2_gnlkh")]
+layout_mode = 2
+tile = 2
+connections = [NodePath("../TextureButton6"), NodePath("../TextureButton")]
+
+[node name="TextureButton5" parent="GridContainer" node_paths=PackedStringArray("connections") instance=ExtResource("2_gnlkh")]
+layout_mode = 2
+tile = 4
+connections = [NodePath("../TextureButton3")]
+
+[node name="TextureButton6" parent="GridContainer" node_paths=PackedStringArray("connections") instance=ExtResource("2_gnlkh")]
+layout_mode = 2
+tile = 1
+connections = [NodePath("../TextureButton5")]
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_78jky")
+
+[node name="Fin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ni5d5")
+
+[connection signal="pressed" from="GridContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton2" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton3" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton4" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton5" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton6" to="." method="_on_texture_button_pressed"]

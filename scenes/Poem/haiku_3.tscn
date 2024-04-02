@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://befxccblir3qs"]
+
+[ext_resource type="Script" path="res://scenes/Poem/haiku_1.gd" id="1_4rs7s"]
+[ext_resource type="FontFile" uid="uid://c5nto8d4eq0xb" path="res://assets/font/Silver.ttf" id="2_0movr"]
+
+[node name="Haiku3" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4rs7s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.423529, 0.133333, 0.65098, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.921569, 0.847059, 0.698039, 1)
+theme_override_fonts/font = ExtResource("2_0movr")
+theme_override_font_sizes/font_size = 38
+text = "Lights twinkle below,
+Memories of grandeur flow,
+Atlantis's glow."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
