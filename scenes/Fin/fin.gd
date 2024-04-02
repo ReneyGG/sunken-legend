@@ -11,4 +11,5 @@ func _on_texture_button_pressed():
 	if pressed:
 		return
 	pressed = true
+	$End.play()
 	Transition.change_scene(next)

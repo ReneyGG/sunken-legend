@@ -48,14 +48,15 @@ layout_mode = 2
 
 [node name="TextureButton2" parent="GridContainer" instance=ExtResource("3_crhc0")]
 layout_mode = 2
-tile = 1
+tile = 2
 
 [node name="TextureButton3" parent="GridContainer" instance=ExtResource("3_crhc0")]
 layout_mode = 2
-tile = 2
+tile = 1
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_xknnm")
+volume_db = 3.0
 
 [node name="Fin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_upwyt")

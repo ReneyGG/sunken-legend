@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsmxrgauvom1l"]
+[gd_scene load_steps=12 format=3 uid="uid://bsmxrgauvom1l"]
 
 [ext_resource type="Script" path="res://scenes/Intro/intro.gd" id="1_7d5pb"]
 [ext_resource type="Texture2D" uid="uid://dwqgkm4wx37gi" path="res://assets/dithers/dither_it_book(2).png" id="1_20hhn"]
 [ext_resource type="FontFile" uid="uid://c5nto8d4eq0xb" path="res://assets/font/Silver.ttf" id="2_2bjw8"]
+[ext_resource type="Texture2D" uid="uid://7n18j3tqmxq4" path="res://assets/dithers/dither_it_8c68KeKgi.png" id="3_7pqsv"]
 [ext_resource type="AudioStream" uid="uid://dg8j832p2n2rs" path="res://sfx/footstep_concrete_002.ogg" id="4_fdsv7"]
 [ext_resource type="AudioStream" uid="uid://1oigj8c481oj" path="res://sfx/impactPlate_medium_001.ogg" id="5_t5pw1"]
 
@@ -17,6 +18,18 @@ tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(0.31, 0.31), Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -142,7 +155,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -11.0
 offset_top = -9.0
-offset_right = 10.0
+offset_right = 12.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -158,6 +171,11 @@ libraries = {
 position = Vector2(11, 9)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_20hhn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BookButton"]
+position = Vector2(11, 9)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_7pqsv")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

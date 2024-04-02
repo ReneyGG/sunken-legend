@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://pyd3b5qwwpvc"]
+[gd_scene load_steps=7 format=3 uid="uid://pyd3b5qwwpvc"]
 
 [ext_resource type="Script" path="res://scenes/Intro/choice.gd" id="1_vjv53"]
 [ext_resource type="FontFile" uid="uid://c5nto8d4eq0xb" path="res://assets/font/Silver.ttf" id="1_x6h1f"]
 [ext_resource type="PackedScene" uid="uid://bi8s7c0v75fx6" path="res://scenes/main_0.tscn" id="2_4xg8k"]
+[ext_resource type="AudioStream" uid="uid://bcmsf4hcjgh04" path="res://sfx/pageflip_01-81244.ogg" id="4_t42gi"]
 
 [sub_resource type="Animation" id="Animation_ydhvj"]
 resource_name = "open"
@@ -127,5 +128,8 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_2ocnu")
 }
+
+[node name="Page" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_t42gi")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -68,6 +68,7 @@ connections = [NodePath("../TextureButton3")]
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_x7cjg")
+volume_db = 3.0
 
 [node name="Fin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_2jqoa")

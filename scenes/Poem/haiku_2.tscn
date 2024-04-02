@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba0s0x74khmg1"]
+[gd_scene load_steps=5 format=3 uid="uid://ba0s0x74khmg1"]
 
 [ext_resource type="Script" path="res://scenes/Poem/haiku_1.gd" id="1_2ictf"]
 [ext_resource type="FontFile" uid="uid://c5nto8d4eq0xb" path="res://assets/font/Silver.ttf" id="2_3q6sn"]
 [ext_resource type="PackedScene" uid="uid://bqlupebd0x37y" path="res://scenes/main_3.tscn" id="2_tky08"]
+[ext_resource type="AudioStream" uid="uid://bcmsf4hcjgh04" path="res://sfx/pageflip_01-81244.ogg" id="4_vnpyi"]
 
 [node name="Haiku2" type="Control"]
 texture_filter = 1
@@ -51,5 +52,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
+
+[node name="Page" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vnpyi")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://db11wq0u4k6ri"]
+[gd_scene load_steps=7 format=3 uid="uid://db11wq0u4k6ri"]
 
 [ext_resource type="FontFile" uid="uid://c5nto8d4eq0xb" path="res://assets/font/Silver.ttf" id="1_mh27m"]
 [ext_resource type="Script" path="res://scenes/Fin/fin.gd" id="1_wf5is"]
 [ext_resource type="PackedScene" uid="uid://bsmxrgauvom1l" path="res://scenes/Intro/intro.tscn" id="2_bihkd"]
+[ext_resource type="AudioStream" uid="uid://dg8j832p2n2rs" path="res://sfx/footstep_concrete_002.ogg" id="4_i4io1"]
 
 [sub_resource type="Animation" id="Animation_i2bet"]
 resource_name = "fin"
@@ -76,7 +77,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 2.0
 offset_right = 320.0
-offset_bottom = 122.0
+offset_bottom = 132.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.2, 0.2)
@@ -127,5 +128,8 @@ offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
+
+[node name="End" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_i4io1")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
